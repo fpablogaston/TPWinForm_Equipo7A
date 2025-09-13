@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Actividad2
+namespace dominio
 {
-    internal class Marca
+    public class Marca
     {
         private int IDMarca;
         private string descripcion;
@@ -21,6 +21,11 @@ namespace Actividad2
         { 
             get { return descripcion; } 
             set { descripcion = value; }
+        }
+
+        public override string ToString()
+        {
+            return descripcion;
         }
     }
 }

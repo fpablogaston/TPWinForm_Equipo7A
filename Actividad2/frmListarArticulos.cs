@@ -1,4 +1,5 @@
-﻿using System;
+﻿using negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,6 @@ namespace Actividad2P3
         {
             InitializeComponent();
         }
+
     }
 }

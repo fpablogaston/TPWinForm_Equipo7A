@@ -4,22 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Actividad2
+namespace dominio
 {
-    internal class Articulo
+    public class Articulo
     {
-        private int codigoArticulo;
+        private int idArticulo;
+        private string codigoArticulo;
         private string nombre;
         private string descripcion;
         private Marca marca;
         private Categoria categoria;
         private string imagenUrl;
-        private float precio;
+        private decimal precio;
 
-        public int CodigoArticulo
+        public int IdArticulo
         {
-            get { return CodigoArticulo; }
-            set { CodigoArticulo = value; }
+            get { return idArticulo; }
+            set { idArticulo = value; }
+        }
+        public string CodigoArticulo
+        {
+            get { return codigoArticulo; }
+            set { codigoArticulo = value; }
         }
 
         public string Nombre
@@ -51,10 +57,11 @@ namespace Actividad2
             set { imagenUrl = value; }
         }
 
-        public float Precio
+        public decimal Precio
         {
             get { return precio; }
             set { precio = value; }
         }
+
     }
 }

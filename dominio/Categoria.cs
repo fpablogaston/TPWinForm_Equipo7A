@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Actividad2
+namespace dominio
 {
-    internal class Categoria
+    public class Categoria
     {
         private int IDCategoria;
         private string descripcion;
-
         public int IdCategoria 
         { 
             get { return IDCategoria; } 
@@ -21,6 +20,11 @@ namespace Actividad2
         { 
             get { return descripcion; } 
             set { descripcion = value; }
+        }
+
+        public override string ToString()
+        {
+            return descripcion;
         }
     }
 }
