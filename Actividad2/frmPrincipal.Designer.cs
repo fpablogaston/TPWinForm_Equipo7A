@@ -30,12 +30,14 @@
         {
             menuStrip1 = new MenuStrip();
             articulosToolStripMenuItem = new ToolStripMenuItem();
+            agregarToolStripMenuItem = new ToolStripMenuItem();
+            modificarToolStripMenuItem1 = new ToolStripMenuItem();
+            eliminarToolStripMenuItem1 = new ToolStripMenuItem();
             marcasToolStripMenuItem = new ToolStripMenuItem();
             administrarToolStripMenuItem = new ToolStripMenuItem();
             categoriasToolStripMenuItem = new ToolStripMenuItem();
             administrarToolStripMenuItem1 = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
-            listarToolStripMenuItem = new ToolStripMenuItem();
             nuevoToolStripMenuItem = new ToolStripMenuItem();
             buscarToolStripMenuItem = new ToolStripMenuItem();
             modificarToolStripMenuItem = new ToolStripMenuItem();
@@ -55,15 +57,35 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(5, 2, 0, 2);
-            menuStrip1.Size = new Size(820, 24);
+            menuStrip1.Size = new Size(815, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // articulosToolStripMenuItem
             // 
+            articulosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { agregarToolStripMenuItem, modificarToolStripMenuItem1, eliminarToolStripMenuItem1 });
             articulosToolStripMenuItem.Name = "articulosToolStripMenuItem";
             articulosToolStripMenuItem.Size = new Size(66, 20);
             articulosToolStripMenuItem.Text = "Articulos";
+            // 
+            // agregarToolStripMenuItem
+            // 
+            agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
+            agregarToolStripMenuItem.Size = new Size(180, 22);
+            agregarToolStripMenuItem.Text = "Agregar";
+            agregarToolStripMenuItem.Click += agregarToolStripMenuItem_Click;
+            // 
+            // modificarToolStripMenuItem1
+            // 
+            modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
+            modificarToolStripMenuItem1.Size = new Size(180, 22);
+            modificarToolStripMenuItem1.Text = "Modificar";
+            // 
+            // eliminarToolStripMenuItem1
+            // 
+            eliminarToolStripMenuItem1.Name = "eliminarToolStripMenuItem1";
+            eliminarToolStripMenuItem1.Size = new Size(180, 22);
+            eliminarToolStripMenuItem1.Text = "Eliminar";
             // 
             // marcasToolStripMenuItem
             // 
@@ -99,13 +121,6 @@
             salirToolStripMenuItem.Size = new Size(41, 20);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
-            // 
-            // listarToolStripMenuItem
-            // 
-            listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            listarToolStripMenuItem.Size = new Size(180, 22);
-            listarToolStripMenuItem.Text = "Listar";
-            listarToolStripMenuItem.Click += listarToolStripMenuItem_Click;
             // 
             // nuevoToolStripMenuItem
             // 
@@ -148,7 +163,7 @@
             dgvMain.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvMain.Location = new Point(12, 50);
             dgvMain.Name = "dgvMain";
-            dgvMain.Size = new Size(478, 406);
+            dgvMain.Size = new Size(478, 276);
             dgvMain.TabIndex = 1;
             dgvMain.SelectionChanged += dgvMain_SelectionChanged;
             // 
@@ -156,7 +171,8 @@
             // 
             pbxMain.Location = new Point(496, 50);
             pbxMain.Name = "pbxMain";
-            pbxMain.Size = new Size(312, 406);
+            pbxMain.Size = new Size(312, 276);
+            pbxMain.SizeMode = PictureBoxSizeMode.StretchImage;
             pbxMain.TabIndex = 2;
             pbxMain.TabStop = false;
             // 
@@ -164,7 +180,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(820, 484);
+            ClientSize = new Size(815, 346);
             Controls.Add(pbxMain);
             Controls.Add(dgvMain);
             Controls.Add(menuStrip1);
@@ -184,7 +200,6 @@
         #endregion
 
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem listarToolStripMenuItem;
         private ToolStripMenuItem nuevoToolStripMenuItem;
         private ToolStripMenuItem buscarToolStripMenuItem;
         private ToolStripMenuItem marcasToolStripMenuItem;
@@ -198,5 +213,8 @@
         private DataGridView dgvMain;
         private PictureBox pbxMain;
         private ToolStripMenuItem articulosToolStripMenuItem;
+        private ToolStripMenuItem agregarToolStripMenuItem;
+        private ToolStripMenuItem modificarToolStripMenuItem1;
+        private ToolStripMenuItem eliminarToolStripMenuItem1;
     }
 }

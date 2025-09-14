@@ -35,7 +35,10 @@ namespace negocio
                     aux.Marca.Descripcion = (string)datos.Lector["Marca"];
                     aux.Categoria = new Categoria();
                     aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
-                    aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+
+                    if(!(datos.Lector["ImagenUrl"] is DBNull))
+                        aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+                    
                     aux.Precio = (decimal)datos.Lector["Precio"];
                     lista.Add(aux);
                 }
@@ -50,6 +53,30 @@ namespace negocio
             finally
             {
                datos.cerrarConexion();
+            }
+        }
+
+        public void agregar(Articulo nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setQuery("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio)");
+                datos.setearParametro("@Codigo", nuevo.CodigoArticulo);
+                datos.setearParametro("@Nombre", nuevo.Nombre);
+                datos.setearParametro("@Descripcion", nuevo.Descripcion);
+                datos.setearParametro("@IdMarca", nuevo.Marca.IdMarca);
+                datos.setearParametro("@IdCategoria", nuevo.Categoria.IdCategoria);
+                datos.setearParametro("@Precio", nuevo.Precio);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
     }

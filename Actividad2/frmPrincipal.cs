@@ -34,10 +34,10 @@ namespace Actividad2
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
 
+                ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
 
-                ArticuloNegocio negocio = new ArticuloNegocio();
                 listaArticulos = negocio.listar();
 
                 dgvMain.DataSource = listaArticulos;
@@ -53,11 +53,6 @@ namespace Actividad2
             }
         }
 
-        private void listarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmListarArticulos ventana = new frmListarArticulos();
-            ventana.Show();
-        }
 
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -124,6 +119,12 @@ namespace Actividad2
 
 
             }
+        }
+
+        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgregarArticulos alta = new frmAgregarArticulos();
+            alta.ShowDialog();
         }
     }
 }
