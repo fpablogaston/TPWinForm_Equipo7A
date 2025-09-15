@@ -165,6 +165,7 @@
             cboMarca.Name = "cboMarca";
             cboMarca.Size = new Size(121, 23);
             cboMarca.TabIndex = 3;
+            cboMarca.SelectedIndexChanged += cboMarca_SelectedIndexChanged;
             // 
             // cboCategoria
             // 

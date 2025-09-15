@@ -33,8 +33,13 @@ namespace Actividad2
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+            cargar();
+        }
 
-                ArticuloNegocio negocio = new ArticuloNegocio();
+        private void cargar()
+        {
+
+            ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
 
@@ -43,6 +48,7 @@ namespace Actividad2
                 dgvMain.DataSource = listaArticulos;
                 dgvMain.Columns["IdArticulo"].Visible = false;
                 dgvMain.Columns["ImagenUrl"].Visible = false;
+
 
                 pbxMain.Load(listaArticulos[0].ImagenUrl);
 
@@ -125,6 +131,16 @@ namespace Actividad2
         {
             frmAgregarArticulos alta = new frmAgregarArticulos();
             alta.ShowDialog();
+            cargar();
+        }
+
+        private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvMain.CurrentRow.DataBoundItem;
+            frmAgregarArticulos modificar = new frmAgregarArticulos(seleccionado);
+            modificar.ShowDialog();
+            cargar();
         }
     }
 }

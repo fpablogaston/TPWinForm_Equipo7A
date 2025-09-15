@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace dominio
 {
     public class Articulo
     {
+
         private int idArticulo;
         private string codigoArticulo;
         private string nombre;
@@ -22,6 +24,8 @@ namespace dominio
             get { return idArticulo; }
             set { idArticulo = value; }
         }
+
+        [DisplayName("Código Articulo")]
         public string CodigoArticulo
         {
             get { return codigoArticulo; }
@@ -34,6 +38,7 @@ namespace dominio
             set { nombre = value; }
         }
 
+        [DisplayName("Descripción")]
         public string Descripcion
         {
             get { return descripcion; }
@@ -46,6 +51,7 @@ namespace dominio
             set { marca = value; }
         }
 
+        [DisplayName("Categoría")]
         public Categoria Categoria
         {
             get { return categoria; }

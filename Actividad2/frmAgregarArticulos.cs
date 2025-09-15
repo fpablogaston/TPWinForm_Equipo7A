@@ -14,19 +14,53 @@ namespace Actividad2P3
 {
     public partial class frmAgregarArticulos : Form
     {
+        private Articulo articulo = null;
         public frmAgregarArticulos()
         {
             InitializeComponent();
         }
 
+        public frmAgregarArticulos(Articulo articulo)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
+
+        }
+
         private void frmAgregarArticulos_Load(object sender, EventArgs e)
         {
-            MarcaNegocio marcaNegocio = new MarcaNegocio();
-            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-            cboCategoria.DataSource = categoriaNegocio.listar();
-            cboCategoria.DisplayMember = "Descripcion";
-            cboMarca.DataSource = marcaNegocio.listar();
-            cboMarca.DisplayMember = "Descripcion";
+            try
+            {
+
+                CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+                List<Categoria> categorias = categoriaNegocio.listar();
+                cboCategoria.DataSource = categorias;
+                cboCategoria.DisplayMember = "Descripcion";
+                cboCategoria.ValueMember = "IdCategoria";
+                MarcaNegocio marcaNegocio = new MarcaNegocio();
+                List<Marca> marcas = marcaNegocio.listar();
+                cboMarca.DataSource = marcas;
+                cboMarca.DisplayMember = "Descripcion";
+                cboMarca.ValueMember = "IdMarca";
+
+                if (articulo != null)
+                {
+                    Text = "Modificar Articulo";
+                    txbCodigo.Text = articulo.CodigoArticulo;
+                    txbNombre.Text = articulo.Nombre;
+                    txbDescripcion.Text = articulo.Descripcion;
+                    cboMarca.SelectedValue = articulo.Marca.IdMarca;
+                    cboCategoria.SelectedValue = articulo.Categoria.IdCategoria;
+                    txbImagen.Text = articulo.ImagenUrl;
+                    cargarImagen(articulo.ImagenUrl);
+                    txbPrecio.Text = articulo.Precio.ToString();
+                    btnAgregar.Text = "Modificar";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -36,20 +70,31 @@ namespace Actividad2P3
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Articulo nuevo = new Articulo();
+
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
-                nuevo.CodigoArticulo = txbCodigo.Text;
-                nuevo.Nombre = txbNombre.Text;
-                nuevo.Descripcion = txbDescripcion.Text;
-                nuevo.Marca = (Marca)cboMarca.SelectedItem;
-                nuevo.Categoria = (Categoria)cboCategoria.SelectedItem;
-                nuevo.ImagenUrl = txbImagen.Text;
-                nuevo.Precio = decimal.Parse(txbPrecio.Text);
+                if (articulo == null)
+                    articulo = new Articulo();
 
-                negocio.agregar(nuevo);
-                MessageBox.Show("Articulo agregado exitosamente.");
+                articulo.CodigoArticulo = txbCodigo.Text;
+                articulo.Nombre = txbNombre.Text;
+                articulo.Descripcion = txbDescripcion.Text;
+                articulo.Marca = (Marca)cboMarca.SelectedItem;
+                articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
+                articulo.ImagenUrl = txbImagen.Text;
+                articulo.Precio = decimal.Parse(txbPrecio.Text);
+
+                if (articulo.IdArticulo == 0)
+                {
+                    negocio.agregar(articulo);
+                    MessageBox.Show("Articulo agregado exitosamente.");
+                }
+                else
+                {
+                    negocio.modificar(articulo);
+                    MessageBox.Show("Articulo modificado exitosamente.");
+                }
                 this.Close();
 
             }
@@ -63,7 +108,7 @@ namespace Actividad2P3
         {
             cargarImagen(txbImagen.Text);
         }
-            private void cargarImagen(string imagen)
+        private void cargarImagen(string imagen)
         {
             try
             {
@@ -75,6 +120,11 @@ namespace Actividad2P3
 
 
             }
+        }
+
+        private void cboMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -57,7 +57,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(5, 2, 0, 2);
-            menuStrip1.Size = new Size(815, 24);
+            menuStrip1.Size = new Size(821, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -71,20 +71,21 @@
             // agregarToolStripMenuItem
             // 
             agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            agregarToolStripMenuItem.Size = new Size(180, 22);
+            agregarToolStripMenuItem.Size = new Size(125, 22);
             agregarToolStripMenuItem.Text = "Agregar";
             agregarToolStripMenuItem.Click += agregarToolStripMenuItem_Click;
             // 
             // modificarToolStripMenuItem1
             // 
             modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
-            modificarToolStripMenuItem1.Size = new Size(180, 22);
+            modificarToolStripMenuItem1.Size = new Size(125, 22);
             modificarToolStripMenuItem1.Text = "Modificar";
+            modificarToolStripMenuItem1.Click += modificarToolStripMenuItem1_Click;
             // 
             // eliminarToolStripMenuItem1
             // 
             eliminarToolStripMenuItem1.Name = "eliminarToolStripMenuItem1";
-            eliminarToolStripMenuItem1.Size = new Size(180, 22);
+            eliminarToolStripMenuItem1.Size = new Size(125, 22);
             eliminarToolStripMenuItem1.Text = "Eliminar";
             // 
             // marcasToolStripMenuItem
@@ -161,8 +162,10 @@
             // 
             dgvMain.BackgroundColor = SystemColors.Info;
             dgvMain.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvMain.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgvMain.Location = new Point(12, 50);
             dgvMain.Name = "dgvMain";
+            dgvMain.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMain.Size = new Size(478, 276);
             dgvMain.TabIndex = 1;
             dgvMain.SelectionChanged += dgvMain_SelectionChanged;
@@ -170,6 +173,7 @@
             // pbxMain
             // 
             pbxMain.Location = new Point(496, 50);
+            pbxMain.MinimumSize = new Size(200, 200);
             pbxMain.Name = "pbxMain";
             pbxMain.Size = new Size(312, 276);
             pbxMain.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -180,7 +184,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(815, 346);
+            ClientSize = new Size(821, 379);
             Controls.Add(pbxMain);
             Controls.Add(dgvMain);
             Controls.Add(menuStrip1);
