@@ -26,7 +26,11 @@ namespace Actividad2
 
 
 
-
+        private void ocultarColumnas()
+        {
+            dgvMain.Columns["IdArticulo"].Visible = false;
+            dgvMain.Columns["ImagenUrl"].Visible = false;
+        }
 
 
 
@@ -46,8 +50,7 @@ namespace Actividad2
                 listaArticulos = negocio.listar();
 
                 dgvMain.DataSource = listaArticulos;
-                dgvMain.Columns["IdArticulo"].Visible = false;
-                dgvMain.Columns["ImagenUrl"].Visible = false;
+                ocultarColumnas();
 
 
                 pbxMain.Load(listaArticulos[0].ImagenUrl);
@@ -109,8 +112,11 @@ namespace Actividad2
 
         private void dgvMain_SelectionChanged(object sender, EventArgs e)
         {
+            if(dgvMain.CurrentRow != null)
+            {
             Articulo seleccionado = (Articulo)dgvMain.CurrentRow.DataBoundItem;
             cargarImagen(seleccionado.ImagenUrl);
+            }
         }
 
         private void cargarImagen(string imagen)
@@ -161,6 +167,26 @@ namespace Actividad2
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string filtro = txtFiltro.Text;
+
+            if (filtro != "")
+            {
+                listaFiltrada = listaArticulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.CodigoArticulo.ToUpper().Contains(filtro.ToUpper()) || x.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Marca.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Categoria.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else
+            {
+                listaFiltrada = listaArticulos;
+            }
+
+            dgvMain.DataSource = null;
+            dgvMain.DataSource = listaFiltrada;
+            ocultarColumnas();
+
         }
     }
 }

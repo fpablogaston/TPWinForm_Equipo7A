@@ -45,6 +45,8 @@
             verDetalleToolStripMenuItem = new ToolStripMenuItem();
             dgvMain = new DataGridView();
             pbxMain = new PictureBox();
+            lblFiltro = new Label();
+            txtFiltro = new TextBox();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvMain).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxMain).BeginInit();
@@ -99,7 +101,7 @@
             // administrarToolStripMenuItem
             // 
             administrarToolStripMenuItem.Name = "administrarToolStripMenuItem";
-            administrarToolStripMenuItem.Size = new Size(180, 22);
+            administrarToolStripMenuItem.Size = new Size(136, 22);
             administrarToolStripMenuItem.Text = "Administrar";
             administrarToolStripMenuItem.Click += administrarToolStripMenuItem_Click;
             // 
@@ -181,18 +183,38 @@
             pbxMain.TabIndex = 2;
             pbxMain.TabStop = false;
             // 
+            // lblFiltro
+            // 
+            lblFiltro.AutoSize = true;
+            lblFiltro.Location = new Point(12, 342);
+            lblFiltro.Name = "lblFiltro";
+            lblFiltro.Size = new Size(62, 15);
+            lblFiltro.TabIndex = 3;
+            lblFiltro.Text = "Búsqueda:";
+            // 
+            // txtFiltro
+            // 
+            txtFiltro.BackColor = SystemColors.ActiveCaption;
+            txtFiltro.Location = new Point(80, 339);
+            txtFiltro.Name = "txtFiltro";
+            txtFiltro.Size = new Size(162, 23);
+            txtFiltro.TabIndex = 4;
+            txtFiltro.TextChanged += txtFiltro_TextChanged;
+            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(821, 379);
+            Controls.Add(txtFiltro);
+            Controls.Add(lblFiltro);
             Controls.Add(pbxMain);
             Controls.Add(dgvMain);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmPrincipal";
-            Text = "frmPrincipal";
+            Text = "Gestor de articulos.";
             Load += frmPrincipal_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -221,5 +243,7 @@
         private ToolStripMenuItem agregarToolStripMenuItem;
         private ToolStripMenuItem modificarToolStripMenuItem1;
         private ToolStripMenuItem eliminarToolStripMenuItem1;
+        private Label lblFiltro;
+        private TextBox txtFiltro;
     }
 }
