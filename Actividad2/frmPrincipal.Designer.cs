@@ -71,22 +71,23 @@
             // agregarToolStripMenuItem
             // 
             agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            agregarToolStripMenuItem.Size = new Size(125, 22);
+            agregarToolStripMenuItem.Size = new Size(180, 22);
             agregarToolStripMenuItem.Text = "Agregar";
             agregarToolStripMenuItem.Click += agregarToolStripMenuItem_Click;
             // 
             // modificarToolStripMenuItem1
             // 
             modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
-            modificarToolStripMenuItem1.Size = new Size(125, 22);
+            modificarToolStripMenuItem1.Size = new Size(180, 22);
             modificarToolStripMenuItem1.Text = "Modificar";
             modificarToolStripMenuItem1.Click += modificarToolStripMenuItem1_Click;
             // 
             // eliminarToolStripMenuItem1
             // 
             eliminarToolStripMenuItem1.Name = "eliminarToolStripMenuItem1";
-            eliminarToolStripMenuItem1.Size = new Size(125, 22);
+            eliminarToolStripMenuItem1.Size = new Size(180, 22);
             eliminarToolStripMenuItem1.Text = "Eliminar";
+            eliminarToolStripMenuItem1.Click += eliminarToolStripMenuItem1_Click;
             // 
             // marcasToolStripMenuItem
             // 
@@ -98,7 +99,7 @@
             // administrarToolStripMenuItem
             // 
             administrarToolStripMenuItem.Name = "administrarToolStripMenuItem";
-            administrarToolStripMenuItem.Size = new Size(136, 22);
+            administrarToolStripMenuItem.Size = new Size(180, 22);
             administrarToolStripMenuItem.Text = "Administrar";
             administrarToolStripMenuItem.Click += administrarToolStripMenuItem_Click;
             // 

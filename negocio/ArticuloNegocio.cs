@@ -106,5 +106,23 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void eliminarFisica(int id) // No pude resolver una eliminacion logica sin una columna de estado y no queria modificar la base de datos o generar problemas con otros registros.
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setQuery("DELETE FROM ARTICULOS WHERE Id = @Id");
+                datos.setearParametro("@Id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+            }
+        }
     }
 }

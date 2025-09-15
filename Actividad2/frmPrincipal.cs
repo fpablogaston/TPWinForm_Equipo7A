@@ -74,7 +74,7 @@ namespace Actividad2
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmModificarArticulos ventana = new frmModificarArticulos();
+            frmAgregarArticulos ventana = new frmAgregarArticulos();
             ventana.Show();
         }
 
@@ -141,6 +141,26 @@ namespace Actividad2
             frmAgregarArticulos modificar = new frmAgregarArticulos(seleccionado);
             modificar.ShowDialog();
             cargar();
+        }
+
+        private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿Seguro que desea eliminar el articulo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvMain.CurrentRow.DataBoundItem;
+                    negocio.eliminarFisica(seleccionado.IdArticulo);
+                    cargar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
