@@ -127,12 +127,7 @@
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
             // nuevoToolStripMenuItem
-            // 
-            nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            nuevoToolStripMenuItem.Size = new Size(180, 22);
-            nuevoToolStripMenuItem.Text = "Buscar";
-            nuevoToolStripMenuItem.Click += nuevoToolStripMenuItem_Click;
-            // 
+            
             // buscarToolStripMenuItem
             // 
             buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
@@ -155,12 +150,7 @@
             eliminarToolStripMenuItem.Click += eliminarToolStripMenuItem_Click;
             // 
             // verDetalleToolStripMenuItem
-            // 
-            verDetalleToolStripMenuItem.Name = "verDetalleToolStripMenuItem";
-            verDetalleToolStripMenuItem.Size = new Size(180, 22);
-            verDetalleToolStripMenuItem.Text = "Ver detalle ";
-            verDetalleToolStripMenuItem.Click += verDetalleToolStripMenuItem_Click;
-            // 
+            
             // dgvMain
             // 
             dgvMain.BackgroundColor = SystemColors.Info;

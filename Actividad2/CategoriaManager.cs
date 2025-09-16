@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Actividad2P3
 {
-    public partial class frmVerDetalle : Form
+    public partial class CategoriaManager : Form
     {
-        public frmVerDetalle()
+        public CategoriaManager()
         {
             InitializeComponent();
         }

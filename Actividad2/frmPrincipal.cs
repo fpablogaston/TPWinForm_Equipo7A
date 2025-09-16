@@ -63,11 +63,7 @@ namespace Actividad2
         }
 
 
-        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmBuscarArticulos ventana = new frmBuscarArticulos();
-            ventana.Show();
-        }
+       
 
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -87,11 +83,7 @@ namespace Actividad2
             ventana.Show();
         }
 
-        private void verDetalleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmVerDetalle ventana = new frmVerDetalle();
-            ventana.Show();
-        }
+       
 
         private void administrarToolStripMenuItem_Click(object sender, EventArgs e)
         {

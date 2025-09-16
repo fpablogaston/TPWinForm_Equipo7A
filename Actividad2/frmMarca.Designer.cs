@@ -28,12 +28,91 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "frmMarca";
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMarca));
+            dgvMarca = new DataGridView();
+            toolStrip1 = new ToolStrip();
+            toolStripDropDownButton1 = new ToolStripDropDownButton();
+            agregarToolStripMenuItem = new ToolStripMenuItem();
+            modificarToolStripMenuItem = new ToolStripMenuItem();
+            eliminarToolStripMenuItem = new ToolStripMenuItem();
+            ((System.ComponentModel.ISupportInitialize)dgvMarca).BeginInit();
+            toolStrip1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // dgvMarca
+            // 
+            dgvMarca.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvMarca.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dgvMarca.Location = new Point(35, 104);
+            dgvMarca.Name = "dgvMarca";
+            dgvMarca.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvMarca.Size = new Size(240, 245);
+            dgvMarca.TabIndex = 0;
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1 });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(321, 25);
+            toolStrip1.TabIndex = 1;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripDropDownButton1
+            // 
+            toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { agregarToolStripMenuItem, modificarToolStripMenuItem, eliminarToolStripMenuItem });
+            toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
+            toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
+            toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            toolStripDropDownButton1.Size = new Size(29, 22);
+            toolStripDropDownButton1.Text = "toolStripDropDownButton1";
+            // 
+            // agregarToolStripMenuItem
+            // 
+            agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
+            agregarToolStripMenuItem.Size = new Size(180, 22);
+            agregarToolStripMenuItem.Text = "Agregar";
+            agregarToolStripMenuItem.Click += agregarToolStripMenuItem_Click;
+            // 
+            // modificarToolStripMenuItem
+            // 
+            modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
+            modificarToolStripMenuItem.Size = new Size(180, 22);
+            modificarToolStripMenuItem.Text = "Modificar";
+            modificarToolStripMenuItem.Click += modificarToolStripMenuItem_Click;
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            eliminarToolStripMenuItem.Size = new Size(180, 22);
+            eliminarToolStripMenuItem.Text = "Eliminar";
+            eliminarToolStripMenuItem.Click += eliminarToolStripMenuItem_Click;
+            // 
+            // frmMarca
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(321, 447);
+            Controls.Add(toolStrip1);
+            Controls.Add(dgvMarca);
+            Name = "frmMarca";
+            Text = "frmMarca";
+            Load += frmMarca_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvMarca).EndInit();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private DataGridView dgvMarca;
+        private ToolStrip toolStrip1;
+        private ToolStripDropDownButton toolStripDropDownButton1;
+        private ToolStripMenuItem agregarToolStripMenuItem;
+        private ToolStripMenuItem modificarToolStripMenuItem;
+        private ToolStripMenuItem eliminarToolStripMenuItem;
     }
 }
