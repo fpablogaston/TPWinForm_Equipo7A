@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using dominio; 
+using dominio;
+using System.Drawing.Text;
 
 namespace Actividad2P3
 {
     public partial class frmAgregarArticulos : Form
     {
-        private Articulo articulo = null;
+        private Articulo? articulo = null;
         public frmAgregarArticulos()
         {
             InitializeComponent();
@@ -71,7 +72,49 @@ namespace Actividad2P3
         private void btnAgregar_Click(object sender, EventArgs e)
         {
 
-            ArticuloNegocio negocio = new ArticuloNegocio();
+            if (string.IsNullOrEmpty(txbCodigo.Text))
+            {
+                MessageBox.Show("Debe ingresar un codigo de articulo");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txbNombre.Text))
+            {
+                MessageBox.Show("Debe ingresar un nombre");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txbDescripcion.Text))
+            {
+                MessageBox.Show("Debe ingresar una descripcion");
+                return;
+            }
+
+            if (cboMarca.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar la marca");
+                return;
+            }
+
+            if (cboCategoria.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar la categoria");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txbPrecio.Text))
+            {
+                MessageBox.Show("El precio es obligatorio");
+                return;
+            }
+
+            if (!soloNumeros(txbPrecio.Text))
+            {
+                MessageBox.Show("Solo se pueden ingresar numeros");
+                return;
+            }
+
+        ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
                 if (articulo == null)
@@ -126,5 +169,17 @@ namespace Actividad2P3
         {
 
         }
+
+        private bool soloNumeros(string text)
+        {
+            foreach (char caracter in text)
+            {
+                if (!(char.IsNumber(caracter)))
+                    return false;
+            }
+            return true;
+        }
     }
 }
+
+
