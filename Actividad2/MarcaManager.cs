@@ -28,6 +28,12 @@ namespace Actividad2P3
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                MessageBox.Show("Debe ingresar un nombre");
+                return;
+            }
+
 
             MarcaNegocio negocio = new MarcaNegocio();
             try
