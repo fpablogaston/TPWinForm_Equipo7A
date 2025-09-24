@@ -1,4 +1,7 @@
 ﻿using dominio;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.Logging;
+using negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using negocio;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Actividad2P3
 {
@@ -58,7 +61,7 @@ namespace Actividad2P3
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Ocurrio un error al guardar los cambios, por favor intente nuevamente.");
             }
         }
 
@@ -83,7 +86,7 @@ namespace Actividad2P3
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("No se pudo cargar la información de la marca, intente nuevamente.");
             }
         }
 

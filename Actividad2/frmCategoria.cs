@@ -1,4 +1,6 @@
-﻿using System;
+﻿using dominio;
+using negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,73 @@ namespace Actividad2P3
         public frmCategoria()
         {
             InitializeComponent();
+        }
+
+        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CategoriaManager categoriaManager = new CategoriaManager();
+            categoriaManager.ShowDialog();
+            cargar();
+        }
+
+
+        private void cargar()
+        {
+            CategoriaNegocio negocio = new CategoriaNegocio();
+            try
+            {
+                List<Categoria> listaCategorias = negocio.listar();
+                dgvCategoria.DataSource = null;
+                dgvCategoria.DataSource = listaCategorias;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
+
+        private void modificarToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (dgvCategoria.CurrentRow != null)
+            {
+                Categoria categoriaSeleccionada = (Categoria)dgvCategoria.CurrentRow.DataBoundItem;
+                CategoriaManager categoriaManager = new CategoriaManager(categoriaSeleccionada);
+                categoriaManager.ShowDialog();
+                cargar();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una marca para modificar.");
+            }
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+                CategoriaNegocio negocio = new CategoriaNegocio();
+                Categoria seleccionado;
+                try
+                {
+                    DialogResult respuesta = MessageBox.Show("¿Seguro que desea eliminar la marca?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        seleccionado = (Categoria)dgvCategoria.CurrentRow.DataBoundItem;
+                        negocio.eliminar(seleccionado.IdCategoria);
+                        cargar();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void frmCategoria_Load(object sender, EventArgs e)
+        {
+            cargar();
         }
     }
 }

@@ -61,7 +61,7 @@ namespace Actividad2P3
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("No se pudo cargar la marca. Intente nuevamente");
             }
 
         }
@@ -82,7 +82,7 @@ namespace Actividad2P3
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("No se pudo eliminar la marca. Intente nuevamente");
             }
         }
     }
