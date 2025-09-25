@@ -66,7 +66,7 @@ namespace Actividad2P3
                 Categoria seleccionado;
                 try
                 {
-                    DialogResult respuesta = MessageBox.Show("¿Seguro que desea eliminar la marca?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult respuesta = MessageBox.Show("¿Seguro que desea eliminar la categoría?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (respuesta == DialogResult.Yes)
                     {
                         seleccionado = (Categoria)dgvCategoria.CurrentRow.DataBoundItem;
@@ -76,7 +76,7 @@ namespace Actividad2P3
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show("La categoría no puede ser eliminada, existe en artículos.");
                 }
             }
         }

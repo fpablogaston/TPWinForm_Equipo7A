@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategoria));
             dgvCategoria = new DataGridView();
             toolStrip1 = new ToolStrip();
             toolStripDropDownButton1 = new ToolStripDropDownButton();
@@ -42,11 +41,12 @@
             // dgvCategoria
             // 
             dgvCategoria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCategoria.Location = new Point(42, 124);
-            dgvCategoria.Margin = new Padding(3, 4, 3, 4);
+            dgvCategoria.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dgvCategoria.Location = new Point(37, 93);
             dgvCategoria.Name = "dgvCategoria";
             dgvCategoria.RowHeadersWidth = 51;
-            dgvCategoria.Size = new Size(274, 259);
+            dgvCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCategoria.Size = new Size(240, 194);
             dgvCategoria.TabIndex = 0;
             // 
             // toolStrip1
@@ -55,7 +55,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(373, 27);
+            toolStrip1.Size = new Size(326, 27);
             toolStrip1.TabIndex = 1;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -63,43 +63,45 @@
             // 
             toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
             toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { agregarToolStripMenuItem, modificarToolStripMenuItem, eliminarToolStripMenuItem });
-            toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
+            toolStripDropDownButton1.Image = Properties.Resources.de9ce5fa1bd58647cf262f812075b5ab;
             toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
             toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            toolStripDropDownButton1.Size = new Size(34, 24);
+            toolStripDropDownButton1.Size = new Size(33, 24);
             toolStripDropDownButton1.Text = "toolStripDropDownButton1";
             // 
             // agregarToolStripMenuItem
             // 
             agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            agregarToolStripMenuItem.Size = new Size(224, 26);
+            agregarToolStripMenuItem.Size = new Size(180, 22);
             agregarToolStripMenuItem.Text = "Agregar";
             agregarToolStripMenuItem.Click += agregarToolStripMenuItem_Click;
             // 
             // modificarToolStripMenuItem
             // 
             modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            modificarToolStripMenuItem.Size = new Size(224, 26);
+            modificarToolStripMenuItem.Size = new Size(180, 22);
             modificarToolStripMenuItem.Text = "Modificar";
             modificarToolStripMenuItem.Click += modificarToolStripMenuItem_Click_1;
             // 
             // eliminarToolStripMenuItem
             // 
             eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            eliminarToolStripMenuItem.Size = new Size(224, 26);
+            eliminarToolStripMenuItem.Size = new Size(180, 22);
             eliminarToolStripMenuItem.Text = "Eliminar";
             eliminarToolStripMenuItem.Click += eliminarToolStripMenuItem_Click;
             // 
             // frmCategoria
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(373, 451);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(326, 338);
             Controls.Add(toolStrip1);
             Controls.Add(dgvCategoria);
-            Margin = new Padding(3, 4, 3, 4);
+            MaximumSize = new Size(342, 377);
+            MinimumSize = new Size(342, 377);
             Name = "frmCategoria";
-            Text = "frmCategoria";
+            Text = "Manager - Categorías";
             Load += frmCategoria_Load;
             ((System.ComponentModel.ISupportInitialize)dgvCategoria).EndInit();
             toolStrip1.ResumeLayout(false);

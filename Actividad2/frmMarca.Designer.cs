@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMarca));
             dgvMarca = new DataGridView();
             toolStrip1 = new ToolStrip();
             toolStripDropDownButton1 = new ToolStripDropDownButton();
@@ -62,7 +61,7 @@
             // 
             toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
             toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { agregarToolStripMenuItem, modificarToolStripMenuItem, eliminarToolStripMenuItem });
-            toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
+            toolStripDropDownButton1.Image = Properties.Resources.de9ce5fa1bd58647cf262f812075b5ab;
             toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
             toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             toolStripDropDownButton1.Size = new Size(29, 22);
@@ -93,11 +92,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(321, 447);
             Controls.Add(toolStrip1);
             Controls.Add(dgvMarca);
+            MaximumSize = new Size(337, 486);
+            MinimumSize = new Size(337, 486);
             Name = "frmMarca";
-            Text = "frmMarca";
+            Text = "Manager - Marcas";
             Load += frmMarca_Load;
             ((System.ComponentModel.ISupportInitialize)dgvMarca).EndInit();
             toolStrip1.ResumeLayout(false);

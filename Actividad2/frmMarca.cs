@@ -82,7 +82,7 @@ namespace Actividad2P3
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo eliminar la marca. Intente nuevamente");
+                MessageBox.Show("No se pudo eliminar la marca. Existen articulos relacionados.");
             }
         }
     }

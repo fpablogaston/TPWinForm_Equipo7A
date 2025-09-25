@@ -55,6 +55,11 @@ namespace Actividad2P3
                     txbImagen.Text = articulo.ImagenUrl;
                     cargarImagen(articulo.ImagenUrl);
                     txbPrecio.Text = articulo.Precio.ToString();
+                    if (articulo.Precio <= 0)
+                    {
+                        MessageBox.Show("El precio es invalido.");
+                        return;
+                    }
                     btnAgregar.Text = "Modificar";
                 }
             }
@@ -127,6 +132,11 @@ namespace Actividad2P3
                 articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
                 articulo.ImagenUrl = txbImagen.Text;
                 articulo.Precio = decimal.Parse(txbPrecio.Text);
+                if (articulo.Precio <= 0)
+                {
+                    MessageBox.Show("El precio es inválido.");
+                    return;
+                }
 
                 if (articulo.IdArticulo == 0)
                 {

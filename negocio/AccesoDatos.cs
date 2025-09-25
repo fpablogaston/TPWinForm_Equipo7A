@@ -11,7 +11,7 @@ namespace negocio
     public class AccesoDatos
     {
         private SqlConnection conexion;
-        private SqlCommand comando;
+        public SqlCommand comando;
         private SqlDataReader lector;
 
         public SqlDataReader Lector
@@ -27,6 +27,8 @@ namespace negocio
         {
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = consulta;
+
+            comando.Parameters.Clear();
         }
         public void ejecutarLectura()
         {
@@ -35,7 +37,7 @@ namespace negocio
                 comando.Connection = conexion;
                 conexion.Open();
                 lector = comando.ExecuteReader();
-             
+
             }
             catch (Exception ex)
             {
@@ -51,12 +53,15 @@ namespace negocio
 
         public void setearParametro(string nombre, object valor)
         {
+            if (comando.Parameters.Contains(nombre))
+                comando.Parameters.RemoveAt(nombre);
+
             comando.Parameters.AddWithValue(nombre, valor);
         }
 
         public void ejecutarAccion()
         {
-                comando.Connection = conexion;
+            comando.Connection = conexion;
             try
             {
                 conexion.Open();
@@ -65,6 +70,29 @@ namespace negocio
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        public int ejecutarScalar()
+        {
+
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                object result = comando.ExecuteScalar();
+                if (result == null || result == DBNull.Value)
+                    return 0;
+
+                return Convert.ToInt32(result);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
             }
         }
     }

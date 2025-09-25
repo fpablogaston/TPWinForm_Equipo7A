@@ -8,12 +8,12 @@ namespace dominio
 {
     public class Categoria
     {
-        private int IDCategoria;
+        private int idCategoria;
         private string descripcion;
-        public int IdCategoria 
+        public int IdCategoria
         { 
-            get { return IDCategoria; } 
-            set { IDCategoria = value; }
+            get { return idCategoria; } 
+            set { idCategoria = value; }
         }
 
         public string Descripcion 

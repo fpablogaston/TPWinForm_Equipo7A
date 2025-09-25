@@ -82,6 +82,15 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
+                datos.setQuery("SELECT COUNT(*) FROM Articulos WHERE IdCategoria = @Id");
+                datos.setearParametro("@Id", id);
+                int cantidad = (int)datos.ejecutarScalar();
+
+                if (cantidad > 0)
+                {
+                    throw new Exception();
+                }
+                
                 datos.setQuery("DELETE FROM CATEGORIAS WHERE Id = @Id");
                 datos.setearParametro("@Id", id);
                 datos.ejecutarAccion();
