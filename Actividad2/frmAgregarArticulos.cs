@@ -146,6 +146,7 @@ namespace Actividad2P3
                 else
                 {
                     negocio.modificar(articulo);
+                    negocio.modificarImagen(articulo);
                     MessageBox.Show("Articulo modificado exitosamente.");
                 }
                 this.Close();

@@ -107,6 +107,26 @@ namespace negocio
             }
         }
 
+        public void modificarImagen(Articulo articulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setQuery("UPDATE IMAGENES SET ImagenUrl = @ImagenUrl WHERE IdArticulo = @IdArticulo");
+                datos.setearParametro("@ImagenUrl", articulo.ImagenUrl);
+                datos.setearParametro("@IdArticulo", articulo.IdArticulo);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         public void eliminarFisica(int id) // No pude resolver una eliminacion logica sin una columna de estado y no queria modificar la base de datos o generar problemas con otros registros.
         {
             AccesoDatos datos = new AccesoDatos();

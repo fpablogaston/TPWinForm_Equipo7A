@@ -50,6 +50,8 @@ namespace Actividad2
                 listaArticulos = negocio.listar();
 
                 dgvMain.DataSource = listaArticulos;
+                dgvMain.Columns["Precio"].DefaultCellStyle.Format = "C2";
+                dgvMain.Columns["Precio"].DefaultCellStyle.FormatProvider = new System.Globalization.CultureInfo("es-AR");
                 ocultarColumnas();
 
 
@@ -102,6 +104,9 @@ namespace Actividad2
             this.Close();
         }
 
+        private string ultimaImagen = "";
+
+    
         private void dgvMain_SelectionChanged(object sender, EventArgs e)
         {
             if(dgvMain.CurrentRow != null)
@@ -124,6 +129,7 @@ namespace Actividad2
 
             }
         }
+       
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
